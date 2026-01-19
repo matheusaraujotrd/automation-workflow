@@ -9,3 +9,5 @@ with open("credential.txt", encoding="utf-8") as f:
 
 if user is None or password is None:
     raise ValueError("Missing credentials")
+
+print(user, password)
