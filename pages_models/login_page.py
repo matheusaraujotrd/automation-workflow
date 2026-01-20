@@ -1,7 +1,9 @@
+from load_environment_variables import login_url
+
 class LoginPage:
-    def __init__(self, page, url):
+    def __init__(self, page):
         self.page = page
-        self.url = url
+        self.url = login_url
         
         # Locators
         self.email_input = page.get_by_placeholder("seu@email.com")

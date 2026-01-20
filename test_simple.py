@@ -1,31 +1,26 @@
 from playwright.sync_api import Page, expect
-from load_environment_variables import user, password, login_url, home_url
+from pages_models.login_page import LoginPage
+from load_environment_variables import user, password, home_url
 
-def check_account_creation_page(page: Page):
-    page.goto(login_url)
-    response = page.request.get()
-    page.get_by_text("Criar conta").click()
-    expect(page).not_to_have_url(login_url)
-    expect(page).to_be_ok()
+#def check_account_creation_page(page: Page):
+
 
 def test_invalid_email_login(page: Page):
-    page.goto(login_url)
-    page.get_by_placeholder("seu@email.com").fill("email@a")
-    page.get_by_placeholder("••••••••").fill(password)
-    page.get_by_text("Entrar").click()
-    expect(page.get_by_text("Por favor, insira um email válido")).to_have_text("Por favor, insira um email válido")
+    login_page = LoginPage(page)
+    login_page.navigate()
+    login_page.login("teste@em", "123456")
+    expect(page.get_by_text("Por favor, insira um email válido")).to_be_visible()
 
 def test_short_password_login(page: Page):
-    page.goto(login_url)
-    page.get_by_placeholder("seu@email.com").fill(user)
-    page.get_by_placeholder("••••••••").fill("123")
-    page.get_by_text("Entrar").click()
-    expect(page.get_by_text("O campo password deve ter pelo menos 6 caracteres")).to_have_text("O campo password deve ter pelo menos 6 caracteres")
+    login_page = LoginPage(page)
+    login_page.navigate()
+    login_page.login("teste@email.com", "123")
+    expect(page.get_by_text("O campo password deve ter pelo menos 6 caracteres")).to_be_visible()
+
 
 def test_sucessful_login(page: Page):
-    page.goto(login_url)
-    page.get_by_placeholder("seu@email.com").fill(user)
-    page.get_by_placeholder("••••••••").fill(password)
-    page.get_by_text("Entrar").click()
-    expect(page).not_to_have_url(login_url)
+    login_page = LoginPage(page)
+    login_page.navigate()
+    login_page.login(user, password)
+    expect(page).not_to_have_url(login_page.url)
     expect(page).to_have_url(home_url)
