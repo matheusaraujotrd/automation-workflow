@@ -43,3 +43,7 @@ automation-workflow/
 - Browser testing limited to Chromium and Firefox to avoid rate limiting
 - Credentials anonymized for portfolio use
 
+## Next Steps
+- Will possibly try some parameterizing to reduce the number of individual tests, making the test cycle even shorter.
+
+
