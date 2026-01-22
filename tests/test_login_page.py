@@ -2,7 +2,7 @@ import pytest
 from pages_models.login_page import LoginPage
 from load_environment_variables import user, password
 
-# 8 test cases for the login page; latest average runtime 16.78s.
+# 8 test cases for the login page; latest average runtime 17.8s.
 
 @pytest.mark.asyncio
 async def test_invalid_email_login(async_page_two_browsers):

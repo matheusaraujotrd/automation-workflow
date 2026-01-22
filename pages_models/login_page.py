@@ -9,7 +9,7 @@ class LoginPage:
         # Locators
         self.email_input = page.get_by_placeholder("seu@email.com")
         self.password_input = page.get_by_placeholder("••••••••")
-        self.login_button = page.get_by_text("Entrar")
+        self.login_button = page.get_by_text("Entrar", exact=True)
         self.create_account_button = page.get_by_text("Criar conta")
         self.service_terms_link = page.get_by_text("Termos de Serviço")
         self.forgot_password_link = page.get_by_text("Esqueceu a senha?")
