@@ -3,7 +3,7 @@
 ## Overview
 End-to-end test automation for a login page based on bug reports from beta testing.
 
-For detailed project information, see [My Portfolio](https://suehtam.notion.site/Portfolio-178b439588e0472fa8fd64f92c68cbff?pvs=74).
+For detailed (and a bit less technical) project information, see [My Portfolio](https://suehtam.notion.site/Portfolio-178b439588e0472fa8fd64f92c68cbff?pvs=74).
 
 ## Key Features
 - **8 test cases** covering validation, authentication, and navigation
@@ -42,3 +42,4 @@ automation-workflow/
 ## Notes
 - Browser testing limited to Chromium and Firefox to avoid rate limiting
 - Credentials anonymized for portfolio use
+
