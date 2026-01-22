@@ -49,7 +49,7 @@ class LoginPage:
     async def verify_invalid_credentials_error(self):
         await expect(self.invalid_credentials_error).to_be_visible()
     
-    async def succesful_login(self):
+    async def successful_login(self):
         await expect(self.page).to_have_url(home_url)
     
     async def verify_broken_links(self):

@@ -20,7 +20,7 @@ async def test_short_password_login(async_page_two_browsers):
 
 
 @pytest.mark.asyncio
-async def test_sucessful_login(async_page_two_browsers):
+async def test_successful_login(async_page_two_browsers):
     login_page = LoginPage(async_page_two_browsers)
     await login_page.navigate()
     await login_page.login(user, password)
